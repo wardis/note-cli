@@ -18,7 +18,12 @@ yargs(hideBin(process.argv))
         describe: 'The content of the note to create',
       }),
     async (argv) => {
-      console.info(await newNote(argv.note))
+      console.info(
+        await newNote(
+          argv.note,
+          argv.tags.split(',').map((tag) => tag.trim())
+        )
+      )
     }
   )
   .option('tags', {
