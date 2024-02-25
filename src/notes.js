@@ -11,3 +11,8 @@ export const newNote = async (note, tags = []) => {
 }
 
 export const getAllNotes = async () => (await getDB()).notes
+
+export const findNotes = async (filter) =>
+  (await getDB()).notes.filter((note) =>
+    note.content.toLowerCase().includes(filter.toLowerCase())
+  )

@@ -1,6 +1,6 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { getAllNotes, newNote } from './notes.js'
+import { findNotes, getAllNotes, newNote } from './notes.js'
 
 yargs(hideBin(process.argv))
   .command(
@@ -37,7 +37,9 @@ yargs(hideBin(process.argv))
           'The search term to filter notes by, will be applided to note.content',
         type: 'string',
       }),
-    async (argv) => {}
+    async (argv) => {
+      console.log(await findNotes(argv.filter))
+    }
   )
   .command(
     'remove <id>',
