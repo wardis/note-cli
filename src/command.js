@@ -58,7 +58,7 @@ yargs(hideBin(process.argv))
         type: 'string',
       }),
     async (argv) => {
-      console.log(await findNotes(argv.filter))
+      listNotes(await findNotes(argv.filter))
     }
   )
   .command(
@@ -88,8 +88,9 @@ yargs(hideBin(process.argv))
     'clean',
     'Remove all notes.',
     () => {},
-    (argv) => {
-      removeAllNotes()
+    async (argv) => {
+      await removeAllNotes()
+      console.log('DB is reset.')
     }
   )
   .demandCommand(1)
