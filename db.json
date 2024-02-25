@@ -1,13 +1,14 @@
 {
   "notes": [
     {
-      "content": "Hello World"
+      "tags": [],
+      "content": "Do something",
+      "id": 1708886968813
     },
     {
-      "content": "Cook dinner"
-    },
-    {
-      "content": "Aller dormir"
+      "tags": [],
+      "content": "Make some cash",
+      "id": 1708887072883
     }
   ]
 }

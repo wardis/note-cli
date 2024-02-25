@@ -1,6 +1,6 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { insert } from './db.js'
+import { getAllNotes, newNote } from './notes.js'
 
 yargs(hideBin(process.argv))
   .command(
@@ -11,11 +11,8 @@ yargs(hideBin(process.argv))
         type: 'string',
         describe: 'The content of the note to create',
       }),
-    (argv) => {
-      console.info(argv.note)
-      insert({
-        content: argv.note,
-      })
+    async (argv) => {
+      console.info(await newNote(argv.note))
     }
   )
   .option('tags', {
@@ -27,7 +24,9 @@ yargs(hideBin(process.argv))
     'all',
     'Get all notes.',
     () => {},
-    async (argv) => {}
+    async (argv) => {
+      console.log(await getAllNotes())
+    }
   )
   .command(
     'find <filter>',
