@@ -8,9 +8,18 @@ import {
   removeNote,
 } from './notes.js'
 
+const listNotes = (notes) => {
+  notes.forEach(({ id, tags, content }) => {
+    console.log('id: ', id)
+    console.log('tags: ', tags)
+    console.log('content: ', content)
+    console.log('\n')
+  })
+}
+
 yargs(hideBin(process.argv))
   .command(
-    'new <note>',
+    ['new <note>', 'add'],
     'Create a new note.',
     (yargs) =>
       yargs.positional('note', {
@@ -18,12 +27,11 @@ yargs(hideBin(process.argv))
         describe: 'The content of the note to create',
       }),
     async (argv) => {
-      console.info(
-        await newNote(
-          argv.note,
-          argv.tags.split(',').map((tag) => tag.trim())
-        )
-      )
+      const tags = argv.tags
+        ? argv.tags.split(',').map((tag) => tag.trim())
+        : []
+      const note = await newNote(argv.note, tags)
+      console.log('New note: ', note)
     }
   )
   .option('tags', {
@@ -35,8 +43,9 @@ yargs(hideBin(process.argv))
     'all',
     'Get all notes.',
     () => {},
-    async (argv) => {
-      console.log(await getAllNotes())
+    async () => {
+      const notes = await getAllNotes()
+      listNotes(notes)
     }
   )
   .command(
@@ -53,7 +62,7 @@ yargs(hideBin(process.argv))
     }
   )
   .command(
-    'remove <id>',
+    ['remove <id>', 'delete'],
     'Remove a note by id.',
     (yargs) =>
       yargs.positional('id', {

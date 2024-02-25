@@ -1,34 +1,3 @@
 {
-  "notes": [
-    {
-      "tags": [],
-      "content": "Do something",
-      "id": 1708886968813
-    },
-    {
-      "tags": [],
-      "content": "Make some cash",
-      "id": 1708887072883
-    },
-    {
-      "tags": [],
-      "content": "hello",
-      "id": 1708889132570
-    },
-    {
-      "tags": [],
-      "content": "hello",
-      "id": 1708889141790
-    },
-    {
-      "tags": ["base"],
-      "content": "hello",
-      "id": 1708889440532
-    },
-    {
-      "tags": ["hello", "the world", "balance"],
-      "content": "hello",
-      "id": 1708889451586
-    }
-  ]
+  "notes": []
 }
