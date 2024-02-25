@@ -1,5 +1,6 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
+import { insert } from './db.js'
 
 yargs(hideBin(process.argv))
   .command(
@@ -12,6 +13,9 @@ yargs(hideBin(process.argv))
       }),
     (argv) => {
       console.info(argv.note)
+      insert({
+        content: argv.note,
+      })
     }
   )
   .option('tags', {
