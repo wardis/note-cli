@@ -1,3 +1,23 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "tags": [],
+      "content": "welcome",
+      "id": 1708905811249
+    },
+    {
+      "tags": [],
+      "content": "hello there",
+      "id": 1708906020579
+    },
+    {
+      "tags": [
+        "greetings",
+        "polite",
+        "robot"
+      ],
+      "content": "say hello again",
+      "id": 1708906046218
+    }
+  ]
 }
